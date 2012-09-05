@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
-public class FooController {
+public class JournalEntryController {
 
     @Resource
     private JournalEntryRepository journalEntryRepository;
