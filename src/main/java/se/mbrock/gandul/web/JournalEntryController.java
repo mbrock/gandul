@@ -1,34 +1,34 @@
 package se.mbrock.gandul.web;
 
-import com.google.common.collect.Lists;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import se.mbrock.gandul.journal.JournalEntry;
 import se.mbrock.gandul.journal.JournalEntryRepository;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Controller
+@RequestMapping("/journal-entry")
 public class JournalEntryController {
 
     @Resource
     private JournalEntryRepository journalEntryRepository;
 
-    @ModelAttribute("journalEntries")
-    public List<JournalEntry> getJournalEntries() {
-        return Lists.newArrayList(journalEntryRepository.findAll());
+    @RequestMapping("/{id}")
+    public ModelAndView showJournalEntry(@PathVariable("id") String journalEntryId) {
+        return new ModelAndView("journal-entry", "journalEntry", journalEntryRepository.findOne(journalEntryId));
     }
 
-    @RequestMapping("/foo")
-    public String getFoo() {
-        return "foo";
+    @RequestMapping("/")
+    public ModelAndView showAll() {
+        return new ModelAndView("journal", "journalEntries", journalEntryRepository.findAll());
     }
 
-    @RequestMapping("/new-journal-entry")
+    @RequestMapping("/new")
     public void makeNew(@RequestParam String text) {
-        journalEntryRepository.save(new JournalEntry(text, false));
+        journalEntryRepository.save(new JournalEntry(text, true));
     }
 }

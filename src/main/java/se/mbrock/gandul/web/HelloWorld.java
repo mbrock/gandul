@@ -25,7 +25,7 @@ public class HelloWorld {
     private static final String CLASS_ONLY_AVAILABLE_IN_IDE =
             "com.sjl.IDE";
     private static final String PROJECT_RELATIVE_PATH_TO_WEBAPP =
-            "src/main/java/META-INF/gandul";
+            "src/main/webapp";
 
     public static interface WebContext
     {
