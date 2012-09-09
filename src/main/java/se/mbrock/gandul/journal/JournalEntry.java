@@ -10,6 +10,8 @@ public class JournalEntry {
 
     private String entryText;
 
+    private JournalEntryType type;
+
     private boolean stricken;
 
     public JournalEntry(String entryText, boolean stricken) {
@@ -39,5 +41,13 @@ public class JournalEntry {
 
     public void setStricken(boolean stricken) {
         this.stricken = stricken;
+    }
+
+    public JournalEntryType getType() {
+        return type;
+    }
+
+    public void setType(JournalEntryType type) {
+        this.type = type;
     }
 }

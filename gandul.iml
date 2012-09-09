@@ -77,6 +77,9 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty.orbit:org.eclipse.jdt.core:3.7.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:13.0" level="project" />
+    <orderEntry type="library" name="underscore" level="application" />
+    <orderEntry type="library" name="backbone" level="application" />
+    <orderEntry type="library" name="jquery-latest" level="application" />
   </component>
 </module>
 
